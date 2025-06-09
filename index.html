@@ -11,21 +11,22 @@
         <h1>¡Gana un Descuento para tu Calzado!</h1>
         <div id="game-status">
             <p>Puntos: <span id="points">0</span></p>
-            <p>Responde correctamente 5 veces para ganar un 20% de descuento.</p>
+            <p>Responde correctamente las 4 preguntas para ganar un 20% de descuento.</p>
         </div>
-        
+
+        <!-- Matriz de imágenes de calzado -->
         <div id="product-selection">
-            <p>Selecciona el calzado que sea el adecuado para la ocasión:</p>
-            <div id="products">
-                <img class="product" id="product-1" src="https://raw.githubusercontent.com/devlepa/Wonder_game/main/assets/calzado-1.png" alt="Calzado 1">
-                <img class="product" id="product-2" src="https://raw.githubusercontent.com/devlepa/Wonder_game/main/assets/calzado-2.png" alt="Calzado 2">
-                <img class="product" id="product-3" src="https://raw.githubusercontent.com/devlepa/Wonder_game/main/assets/calzado-3.png" alt="Calzado 3">
-                <img class="product" id="product-4" src="https://raw.githubusercontent.com/devlepa/Wonder_game/main/assets/calzado-4.png" alt="Calzado 4">
+            <div id="products" class="grid-container">
+                <!-- Las imágenes se generarán dinámicamente -->
             </div>
         </div>
 
         <div id="feedback"></div>
+
+        <!-- Botón de Reiniciar Juego -->
+        <button onclick="resetGame()">Reiniciar Juego</button>
     </div>
+
     <script src="game.js"></script>
 </body>
 </html>
