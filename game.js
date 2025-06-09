@@ -1,40 +1,36 @@
 let points = 0;
 
-// Función para iniciar el juego
-function startGame() {
-    document.getElementById('start-btn').disabled = true; // Desactivar el botón de inicio
-    document.getElementById('mission').innerHTML = '<h2>¡Completa las misiones!</h2>';
-    startMission();
-}
+// Array de respuestas correctas (en este caso, por ejemplo, el calzado adecuado es el 1)
+const correctAnswers = [1, 3]; // Los IDs de los calzados correctos
 
-// Función para empezar la misión
-function startMission() {
-    const missionText = 'Ayuda al personaje a elegir la ropa adecuada.';
-    const task = `Selecciona los colores correctos para el conjunto (Ropa 1: Azul, Ropa 2: Rojo)`;
-    
-    document.getElementById('game-board').innerHTML = `
-        <p>${missionText}</p>
-        <p>${task}</p>
-        <button id="clothing-1">Ropa Azul</button>
-        <button id="clothing-2">Ropa Roja</button>
-    `;
-
-    // Agregar eventos a los botones
-    document.getElementById('clothing-1').addEventListener('click', () => completeMission(true));
-    document.getElementById('clothing-2').addEventListener('click', () => completeMission(false));
-}
-
-// Función para completar la misión
-function completeMission(isCorrect) {
-    if (isCorrect) {
-        points += 10; // Aumentar puntos si la respuesta es correcta
+// Función para manejar el clic en los productos
+function handleProductClick(productId) {
+    if (correctAnswers.includes(productId)) {
+        points += 1; // Aumentar puntos por acierto
         document.getElementById('points').textContent = points;
-        alert('¡Misión completada! ¡Has ganado 10 puntos!');
+        showFeedback("¡Acierto! Sigue así para ganar un descuento.");
     } else {
-        alert('Misión fallida. ¡Intenta nuevamente!');
+        showFeedback("¡Oops! Intenta de nuevo.");
     }
-    
-    setTimeout(() => startMission(), 2000); // Esperar 2 segundos antes de iniciar otra misión
+
+    if (points >= 5) {
+        showDiscount();
+    }
 }
 
-document.getElementById('start-btn').addEventListener('click', startGame);
+// Función para mostrar feedback después de una selección
+function showFeedback(message) {
+    document.getElementById('feedback').textContent = message;
+}
+
+// Función para mostrar el descuento cuando el usuario alcanza 5 puntos
+function showDiscount() {
+    const discountMessage = "¡Felicidades! Has ganado un 20% de descuento en la compra de calzado. Usa el código: WONDERS20 al finalizar la compra.";
+    document.getElementById('feedback').textContent = discountMessage;
+}
+
+// Agregar event listeners a las imágenes de productos
+document.getElementById('product-1').addEventListener('click', () => handleProductClick(1));
+document.getElementById('product-2').addEventListener('click', () => handleProductClick(2));
+document.getElementById('product-3').addEventListener('click', () => handleProductClick(3));
+document.getElementById('product-4').addEventListener('click', () => handleProductClick(4));

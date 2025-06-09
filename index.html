@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wonders Kids - Aventura Mágica</title>
+    <title>Wonders Kids - Aventura de Descuento</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
-        <h1>¡Bienvenido a la Aventura Mágica de Wonders Kids!</h1>
-        <div id="mission">
-            <h2>Misiones:</h2>
-            <button id="start-btn">Iniciar Aventura</button>
-        </div>
+        <h1>¡Gana un Descuento para tu Calzado!</h1>
         <div id="game-status">
             <p>Puntos: <span id="points">0</span></p>
+            <p>Responde correctamente 5 veces para ganar un 20% de descuento.</p>
         </div>
-        <div id="game-board"></div>
+        
+        <div id="product-selection">
+            <p>Selecciona el calzado que sea el adecuado para la ocasión:</p>
+            <div id="products">
+                <img class="product" id="product-1" src="assets/calzado-1.jpg" alt="Calzado 1">
+                <img class="product" id="product-2" src="assets/calzado-2.jpg" alt="Calzado 2">
+                <img class="product" id="product-3" src="assets/calzado-3.jpg" alt="Calzado 3">
+                <img class="product" id="product-4" src="assets/calzado-4.jpg" alt="Calzado 4">
+            </div>
+        </div>
+
+        <div id="feedback"></div>
     </div>
     <script src="game.js"></script>
 </body>
